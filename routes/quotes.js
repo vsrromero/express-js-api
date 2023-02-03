@@ -9,6 +9,11 @@ quotesRouter.get('/random', (req, res, next) => {
     res.send({quote: quote});
 })
 
+quotesRouter.get('/test', (req, res, next) => {
+    const mQuery = req.query;
+    res.send({quote: mQuery});
+})
+
 quotesRouter.get('/', (req, res, next) => {
     const person = req.query.person;
     if(!person) {
@@ -19,7 +24,15 @@ quotesRouter.get('/', (req, res, next) => {
     }
 });
 
-
+quotesRouter.post('/', (req, res, next) => {
+    const receivedQuote = req.query;
+    if(receivedQuote.quote && receivedQuote.person) {
+        quotes.push(receivedQuote);
+        res.status(201).send(quotes);
+    } else {
+        res.status(400).send('Unable to write file')
+    }
+})
 
 
 module.exports = quotesRouter;
