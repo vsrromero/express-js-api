@@ -9,7 +9,7 @@ If you choose to do this project on your computer instead of Codecademy, you can
   
 Once you have an editor an Node.js set up, download the project, unzip it, navigate to that folder in your terminal and run npm install to install Express before trying to start up your server.  
   
-[Download](./files/quote-api-starting.zip)
+[Download](./files)
 ## Tasks
 
 1. To complete this project, you should have completed the Express Routes and Express Routers lessons from our Learn Express curriculum.  
