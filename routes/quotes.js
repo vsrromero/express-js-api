@@ -26,9 +26,7 @@ quotesRouter.get('/', (req, res, next) => {
 
 quotesRouter.get('/:id', (req, res, next) => {
     const quoteID = req.params.id;
-    console.log(quoteID);
     const quoteById = quotes.filter(quote => quote.id === quoteID);
-    console.log(quoteById);
     res.send(quoteById);
 });
 
@@ -36,7 +34,6 @@ quotesRouter.post('/', (req, res, next) => {
     const receivedQuote = req.query;
     if(receivedQuote.quote && receivedQuote.person) {
         const newQuote = createQuote(receivedQuote);
-        console.log(newQuote);
         res.status(201).send({quote: newQuote});
     } else {
         res.status(400).send('Unable to write file');
@@ -46,7 +43,6 @@ quotesRouter.post('/', (req, res, next) => {
 
 quotesRouter.put('/:id', (req, res, next) => {
     const quoteID = getIndexById(req.params.id, quotes);
-    console.log(quoteID);
     if (quoteID !== -1) {
         updateElement(req.params.id, req.query, quotes);
         res.send(quotes[quoteID]);
