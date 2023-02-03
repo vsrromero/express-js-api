@@ -35,12 +35,10 @@ quotesRouter.get('/:id', (req, res, next) => {
 quotesRouter.post('/', (req, res, next) => {
     const receivedQuote = req.query;
     if(receivedQuote.quote && receivedQuote.person) {
-        console.log('criou');
         const newQuote = createQuote(receivedQuote);
         console.log(newQuote);
         res.status(201).send({quote: newQuote});
     } else {
-        console.log('nao criou');
         res.status(400).send('Unable to write file');
     }
 });
